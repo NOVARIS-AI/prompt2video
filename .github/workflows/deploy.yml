@@ -1,0 +1,30 @@
+name: Deploy Prompt2Video to BasicDeploy
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: prompt2video-production
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    name: Deploy existing production container
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Deploy to the existing BasicDeploy container
+        uses: AkaciaNL/basicdeploy-action@v1
+        with:
+          api-key: ${{ secrets.BASICDEPLOY_API_KEY }}
+          container-id: ${{ vars.BASICDEPLOY_CONTAINER_ID }}
+          wait-for-healthy: true
+          timeout: 180
