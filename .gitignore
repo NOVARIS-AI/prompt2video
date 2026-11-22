@@ -1,0 +1,13 @@
+node_modules/
+.env
+.env.*
+!.env.example
+.openai_key
+.replicate_token
+.*_token
+*.swp
+*.log
+Prompt2Video-Local-Renders/
+output/
+renders/
+.DS_Store
