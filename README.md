@@ -49,6 +49,8 @@ The bridge saves generated MP4 files to `Prompt2Video-Local-Renders/` on the com
 
 Deploy as a Node.js service with `npm ci` followed by `npm start`, exposing port `8080`. Configure secrets in the hosting provider dashboard, not in source control.
 
+GitHub Actions deploys pushes to `main` to the existing BasicDeploy production container. The workflow requires the repository Actions secret `BASICDEPLOY_API_KEY`. Manual runs are also available from the Actions tab.
+
 ## Limitations
 
 Procedural Canvas motion and the local bridge's sample FFmpeg renderer create designed motion graphics, not photorealistic generative video. Blender and Python are currently detected by the bridge but their full render pipelines are not yet wired into the application. Browser `MediaRecorder` and audio capture support varies by browser/device.
