@@ -25,6 +25,6 @@ jobs:
         uses: AkaciaNL/basicdeploy-action@v1
         with:
           api-key: ${{ secrets.BASICDEPLOY_API_KEY }}
-          container-id: ${{ vars.BASICDEPLOY_CONTAINER_ID }}
+          container-id: 8203b229-bd29-4678-b8d3-0fd373cb258f
           wait-for-healthy: true
           timeout: 180
